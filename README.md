@@ -1,6 +1,5 @@
 # istSOS4-admin
 - Nuxt.js
-- Elysia.js
 
 ## Synopsis
 This project aims to develop a web-based administration interface for istSOS, making it easier to manage and monitor SensorThings API components. The interface will provide a user-friendly way to register, for example, new Sensors and Things, set metadata, and monitor sensor metrics such as received data, transmission delays, and overall system health.
