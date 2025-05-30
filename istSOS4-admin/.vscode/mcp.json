@@ -1,0 +1,23 @@
+{
+    "servers": {
+        "nuxt-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "nuxt-mcp"
+            ],
+            "env": {}
+        },
+        "vite-mcp-server": {
+            "command": "npx -y vite-plugin-mcp",
+            "args": [],
+            "env": {},
+            "type": "stdio"
+        },
+        "Context7": {
+            "type": "stdio",
+            "command": "npx",
+            "args": ["-y", "@upstash/context7-mcp@latest"]
+        }
+    }
+}
