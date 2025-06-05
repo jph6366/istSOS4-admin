@@ -38,7 +38,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v0"
-          entrypoint: "server/index.mjs"
+          entrypoint: "server/index.ts"
           root: ".output"
           
           
