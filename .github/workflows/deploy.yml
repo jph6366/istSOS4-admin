@@ -39,6 +39,6 @@ jobs:
         with:
           project: "istsos4-admin-v0"
           entrypoint: "server/index.ts"
-          root: ".output"
+          root: "istSOS4-admin/.output"
           
           
