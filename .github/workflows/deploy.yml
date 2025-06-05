@@ -23,14 +23,6 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Install step
-        run: "npm install"
-
       - name: Build step
         run: "NITRO_PRESET=deno-deploy npm run build"
 
@@ -41,4 +33,4 @@ jobs:
           entrypoint: ".output/server/index.mjs"
           root: ".output"
           
-          exclude: node_modules/
+          
