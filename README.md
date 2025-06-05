@@ -1,6 +1,7 @@
 # istSOS4-admin
 - Nuxt.js
 - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
+- Nuxt Layers Utils
 - TailwindCSS
 - Tailwind-Variants
 - DaisyUI
