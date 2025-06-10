@@ -29,16 +29,16 @@ jobs:
           node-version: lts/*
 
       - name: Install step
-        run: "cd istSOS4-admin && npm install"
+        run: "cd src && npm install"
 
       - name: Build step
-        run: "cd istSOS4-admin && NITRO_PRESET=deno-deploy npm run build"
+        run: "cd src && NITRO_PRESET=deno-deploy npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v0"
           entrypoint: "server/index.ts"
-          root: "istSOS4-admin/.output"
+          root: "src/.output"
           
           
