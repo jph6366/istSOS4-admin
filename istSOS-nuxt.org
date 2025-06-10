@@ -18,7 +18,7 @@
 
 ** STRT Pinia istSOS model
 *** STRT build app domain
-** HOLD Pinia ORM istSOS
+** STRT Pinia ORM istSOS
 *** WAIT ORM utility integrations
 Analogy:
 Think of it like this:

@@ -1,0 +1,21 @@
+{
+  "name": "istSOS4-admin DevContainer",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "nuxt",
+  "workspaceFolder": "/app",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "editor.formatOnSave": true
+  },
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "ms-azuretools.vscode-docker"
+  ],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}

@@ -1,5 +1,5 @@
 <template>
-    <MainHeader />
+    <!-- <MainHeader /> -->
     <MainContent />
     <slot />
     <MainFooter />
