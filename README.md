@@ -1,7 +1,10 @@
 # istSOS4-admin
 - Nuxt.js
-- [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
-- Nuxt Dev Tools
+  - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
+  - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms) ( TBD )
+  - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)
+  - Nuxt Dev Tools
+- Axios & H3
 - TailwindCSS
 - Tailwind-Variants
 - DaisyUI
