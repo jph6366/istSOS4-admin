@@ -1,4 +1,5 @@
-# istSOS4-admin
+# istSOS4-Nuxt
+
 - Nuxt.js
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
   - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms) ( TBD )
