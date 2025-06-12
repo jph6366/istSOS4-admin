@@ -1,3 +1,6 @@
+import { fileURLToPath } from 'url'
+import { resolve } from 'path'
+
 // debug
 console.log('Adding layer: site')
 // site feels like a nice bucket here for non-specific concerns
@@ -22,6 +25,11 @@ export default defineNuxtConfig({
     public: 'public',
     shared: 'shared',
   },
+  nitro: {
+    plugins: [
+      '~/layers/site/modules/runtime/server/plugins/llms-site.ts'
+    ]
+  }
   // imports: {
   //   dirs: [
   //     'composables/**'

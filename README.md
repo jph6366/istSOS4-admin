@@ -1,4 +1,6 @@
-# [istSOS](https://istsos.org/)
+![](https://istsos.org/assets/img/istsos_bars_white.png)
+![](https://istsos.org/assets/img/OSGeo_incubation.png)
+# [istSOS.](https://istsos.org/)
 
 **An [OGC SOS](https://www.ogc.org/standards/sos/) server implementation written in Python, distributed under the GPL v2 license.**
 
@@ -20,10 +22,12 @@
   - choice of infrastructure/toolings
   - dependency management
 - Local idioms
-  - istSOS4 python
+  - istSOS4 backend
+    - fastapi + sqlalchemy*geoalchemy + postgresql*postgis + redis
   - istSOS4 grafana
   - istSOS4 gui
     - Next.js, Nuxt.js
+  - istSOS wizard
   - Deno linting and code formatting
     - npm backwards compatible
   - [**Project Steering Committee**](https://istsos.org/psc.html)
@@ -33,7 +37,7 @@
 
 - Nuxt.js ( v4 )
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
-  - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms) ( TBD )
+  - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms)
   - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)
   - Nuxt Dev Tools
 - Axios & H3

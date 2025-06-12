@@ -28,7 +28,45 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()]
   },
   modules: [// ...
+    'nuxt-llms', // automatically generates llms.txt markdown documentation for your Nuxt app
   '@pinia/nuxt', '@nuxt/devtools', '@artmizu/nuxt-prometheus' ],
+  llms: {
+    domain: 'http://127.0.0.1:3000', // Update this to your production domain
+    title: 'istSOS4 Admin Application',
+    description: 'A modern Nuxt.js application for managing istSOS4 - an IoT sensor observation service implementing the OGC SensorThings API standard.',
+    sections: [
+      {
+        title: 'Architecture',
+        description: 'The application is built using a layered architecture pattern with Nuxt layers for modularity and maintainability.',
+        links: [
+          {
+            title: 'Core Layer',
+            description: 'Core functionality including assets, plugins, and shared components',
+            href: '/core'
+          },
+          {
+            title: 'Site Layer',
+            description: 'General site components, layouts, and pages for non-specific concerns',
+            href: '/site'
+          },
+          {
+            title: 'STA Layer',
+            description: 'SensorThings API implementation with models, repositories, and components',
+            href: '/sta'
+          }
+        ]
+      }
+    ],
+    notes: [
+      'This application uses Deno as the server runtime preset.',
+      'Built with TypeScript and Vue 3 for type safety and modern development.',
+      'Uses Pinia for state management and TailwindCSS with DaisyUI for styling.'
+    ],
+    full: {
+      title: 'istSOS4 Admin - Complete Documentation',
+      description: 'Comprehensive documentation for the istSOS4 Admin application including API references, component documentation, and development guides.'
+    }
+  },
   typescript: {
     typeCheck: false
   },

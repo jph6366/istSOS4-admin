@@ -1,6 +1,9 @@
+import { fileURLToPath } from 'url'
+import { resolve } from 'path'
+
 // debug
-console.log('Adding layer: site')
-// site feels like a nice bucket here for non-specific concerns
+console.log('Adding layer: sta')
+// STA layer for SensorThings API implementation
 export default defineNuxtConfig({
   components: [
     {
@@ -20,6 +23,11 @@ export default defineNuxtConfig({
     public: 'public',
     shared: 'shared',
   },
+  nitro: {
+    plugins: [
+      '~/layers/sta/modules/istsos/runtime/server/plugins/llms-sta.ts'
+    ]
+  }
   // imports: {
   //   dirs: [
   //     'composables/**'
