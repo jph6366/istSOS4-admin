@@ -16,9 +16,7 @@ export default defineNuxtConfig({
     },
   ],
   dir: {
-    layouts: 'layouts',
     modules: 'modules',
-    pages: 'pages',
     public: 'public',
     shared: 'shared',
   },

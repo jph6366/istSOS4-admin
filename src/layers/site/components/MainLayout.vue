@@ -1,6 +1,6 @@
 <template>
     <!-- <MainHeader /> -->
-    <MainContent />
+    <Observations />
     <slot />
     <MainFooter />
 </template>

@@ -2,7 +2,7 @@ import { joinURL } from 'ufo'
 
 export default defineEventHandler(async (event) => {
   // Get the runtimeconfig proxy url
-  const proxyUrl = useRuntimeConfig().myProxyUrl
+  const proxyUrl = useRuntimeConfig().serviceRootUri
   // check the path
   const path = event.path.replace(/^\/api\//, '')
   const target = joinURL(proxyUrl, path)

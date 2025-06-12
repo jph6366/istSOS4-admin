@@ -1,5 +1,37 @@
-# istSOS4-admin
-- Nuxt.js
+# [istSOS](https://istsos.org/)
+
+**An [OGC SOS](https://www.ogc.org/standards/sos/) server implementation written in Python, distributed under the GPL v2 license.**
+
+
+# istSOS4-Nuxt
+
+**Nuxt Layers and Modules authored to adhere to stable, common principles to selectively interface with CQRS principle in mind. Designed around SensorThings API and reads idiomaticly like istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+
+
+
+- Code idioms occur at all levels of granularity:
+  - naming functions
+  - types
+  - parameters
+  - modules
+  - layouts
+  - layers (code locations)
+  - structure of modules
+  - choice of infrastructure/toolings
+  - dependency management
+- Local idioms
+  - istSOS4 python
+  - istSOS4 grafana
+  - istSOS4 gui
+    - Next.js, Nuxt.js
+  - Deno linting and code formatting
+    - npm backwards compatible
+  - [**Project Steering Committee**](https://istsos.org/psc.html)
+  - FAIR principles
+  - CARE principles
+  - INSPIRE principles
+
+- Nuxt.js ( v4 )
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
   - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms) ( TBD )
   - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)

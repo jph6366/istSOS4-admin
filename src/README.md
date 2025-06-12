@@ -1,4 +1,5 @@
-# Nuxt Minimal Starter
+
+# istSOS4-Nuxt
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -7,6 +8,9 @@ Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduct
 Make sure to install dependencies:
 
 ```bash
+# deno (if you want to uncomplicate things)
+deno install
+
 # npm
 npm install
 
@@ -25,6 +29,9 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
+# deno
+deno run dev
+
 # npm
 npm run dev
 
@@ -43,6 +50,9 @@ bun run dev
 Build the application for production:
 
 ```bash
+# deno
+deno run build
+
 # npm
 npm run build
 
@@ -59,6 +69,9 @@ bun run build
 Locally preview production build:
 
 ```bash
+# deno
+deno run preview
+
 # npm
 npm run preview
 

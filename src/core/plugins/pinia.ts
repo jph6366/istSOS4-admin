@@ -25,7 +25,7 @@ export default defineNuxtPlugin(({ $pinia }) => {
           'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
           'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
          },
-         baseURL: useRuntimeConfig().myProxyUrl,
+         baseURL: useRuntimeConfig().serviceRootUri,
       }),
     ],
   }))
