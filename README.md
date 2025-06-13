@@ -14,6 +14,7 @@
     - fastapi + sqlalchemy*geoalchemy + postgresql*postgis + redis
   - istSOS4-grafana
   - istSOS4-gui
+    - Next.js alternative to this project
   - istSOS-wizard
 
 
