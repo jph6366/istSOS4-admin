@@ -7,7 +7,7 @@
 
 # istSOS4-Nuxt
 
-**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and reads idiomaticly like istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured idiomaticly, also similarly istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
 
 
 
