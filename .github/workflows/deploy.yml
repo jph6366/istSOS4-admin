@@ -18,27 +18,27 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
 
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      - name: Install step
-        run: "cd src && npm install"
+      - name: Install dependencies
+        run: cd src && npm install
 
-      - name: Build step
-        run: "cd src && NITRO_PRESET=deno_server npm run build"
+      - name: Build application
+        run: cd src && npm run build
+
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v1"
-          entrypoint: "src/.output/server/index.ts"
-          root: "."
+          entrypoint: "./server/index.ts"
+          root: "src/.output/"
 
 
