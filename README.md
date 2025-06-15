@@ -7,8 +7,15 @@
 
 # istSOS4-Nuxt
 
-**Nuxt Layers and Modules authored to adhere to stable, common principles to selectively interface with CQRS principle in mind. Designed around SensorThings API and reads idiomaticly like istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured idiomaticly, also similarly istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
 
+### Other istSOS4 projects
+  - istSOS4 backend
+    - fastapi + sqlalchemy*geoalchemy + postgresql*postgis + redis
+  - istSOS4-grafana
+  - istSOS4-gui
+    - Next.js alternative to this project
+  - istSOS-wizard
 
 
 - Code idioms occur at all levels of granularity:
@@ -21,15 +28,8 @@
   - structure of modules
   - choice of infrastructure/toolings
   - dependency management
+ 
 - Local idioms
-  - istSOS4 backend
-    - fastapi + sqlalchemy*geoalchemy + postgresql*postgis + redis
-  - istSOS4 grafana
-  - istSOS4 gui
-    - Next.js, Nuxt.js
-  - istSOS wizard
-  - Deno linting and code formatting
-    - npm backwards compatible
   - [**Project Steering Committee**](https://istsos.org/psc.html)
   - FAIR principles
   - CARE principles
