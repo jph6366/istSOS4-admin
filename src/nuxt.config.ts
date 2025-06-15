@@ -32,7 +32,7 @@ export default defineNuxtConfig({
     'nuxt-llms', // automatically generates llms.txt markdown documentation for your Nuxt app
   '@pinia/nuxt', '@nuxt/devtools', '@artmizu/nuxt-prometheus' ],
   llms: {
-    domain: 'http://127.0.0.1:3000', // Update this to your production domain
+    domain: 'https://istsos4-admin-v1.deno.dev/', // Update this to your production domain
     title: 'istSOS4 Admin Application',
     description: 'A modern Nuxt.js application for managing istSOS4 - an IoT sensor observation service implementing the OGC SensorThings API standard.',
     sections: [
