@@ -26,17 +26,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: src/pnpm-lock.yaml
+          node-version: lts/*
 
-      - name: Install packages
-        run: pnpm install
-        working-directory: ./src
+      - name: Install step
+        run: "cd src && npm install"
 
-      - name: Build project
-        run: NITRO_PRESET=deno_server pnpm run build
-        working-directory: ./src
+      - name: Build step
+        run: "cd src && NITRO_PRESET=deno_server  npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
