@@ -22,46 +22,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
-          cache: 'npm'
 
       - name: Install dependencies
-        working-directory: ./src
-        run: |
-          npm install
-          npm install -g pnpm
+        run: cd src && npm install
 
       - name: Build application
-        working-directory: ./src
-        run: |
-          NITRO_PRESET=deno npm run build
-          ls -la .output/
+        run: cd src && npm run build
 
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      - name: Test Deno build
-        working-directory: ./src
-        run: |
-          deno run --version
-          deno info .output/server/index.ts
-
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v1"
-          entrypoint: "server/index.ts"
+          entrypoint: "./server/index.ts"
           root: "src/.output/"
-          import-map: |
-            {
-              "imports": {
-                "http": "node:http",
-                "https": "node:https",
-                "@mswjs/interceptors/": "https://esm.sh/@mswjs/interceptors@0.39.2/",
-                "node-fetch": "https://esm.sh/node-fetch@2.6.7",
-                "whatwg-url": "https://esm.sh/whatwg-url@12.0.1"
-              }
-            }
 
 

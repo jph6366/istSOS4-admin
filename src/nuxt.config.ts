@@ -3,6 +3,10 @@ import tailwindcss from "@tailwindcss/vite";
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-06-05', // must be 2025-01-30 or later
+  // components: [
+  //   // override defaults: no path prefix
+  //   { path: '~/src/layers/site/components', pathPrefix: false },
+  // ],
   runtimeConfig: {
     // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
     // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
@@ -19,33 +23,10 @@ export default defineNuxtConfig({
     autoImport: true
   },
   nitro: {
-    preset: "deno",
-    routeRules: {
-      '/**': { cors: true }
-    },
-    experimental: {
-      asyncContext: true
-    },
-    moduleSideEffects: [
-      'reflect-metadata',
-      'vue/server-renderer'
-    ],
-    nodeModulesDirs: ['../node_modules'],
-    externals: {
-      inline: ['@mswjs/interceptors']
-    }
+    preset: "deno-deploy",
   },
   vite: {
-    plugins: [tailwindcss()],
-    build: {
-      target: 'esnext'
-    },
-    optimizeDeps: {
-      exclude: ['@mswjs/interceptors']
-    },
-    ssr: {
-      noExternal: ['@mswjs/interceptors']
-    }
+    plugins: [tailwindcss()]
   },
   modules: [// ...
     'nuxt-llms', // automatically generates llms.txt markdown documentation for your Nuxt app
