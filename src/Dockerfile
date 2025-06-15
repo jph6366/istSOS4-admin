@@ -1,6 +1,6 @@
 # FROM denoland/deno:latest
 
-# WORKDIR /appp
+# WORKDIR /app
 
 # COPY .  .
 
