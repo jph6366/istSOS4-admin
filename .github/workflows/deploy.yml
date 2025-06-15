@@ -32,7 +32,7 @@ jobs:
         run: "cd src && npm install"
 
       - name: Build step
-        run: "cd src && NITRO_PRESET=deno-deploy npm run build"
+        run: "cd src && npm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
