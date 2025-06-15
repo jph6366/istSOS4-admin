@@ -29,7 +29,11 @@ export default defineNuxtConfig({
     moduleSideEffects: [
       'reflect-metadata',
       'vue/server-renderer'
-    ]
+    ],
+    nodeModulesDirs: ['../node_modules'],
+    externals: {
+      inline: ['@mswjs/interceptors']
+    }
   },
   vite: {
     plugins: [tailwindcss()],
@@ -38,6 +42,9 @@ export default defineNuxtConfig({
     },
     optimizeDeps: {
       exclude: ['@mswjs/interceptors']
+    },
+    ssr: {
+      noExternal: ['@mswjs/interceptors']
     }
   },
   modules: [// ...

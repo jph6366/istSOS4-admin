@@ -17,18 +17,25 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-
+      - run: corepack enable
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+
       - name: Install dependencies
-        run: cd src && npm install
+        run: cd src && pnpm install
 
       - name: Build application
-        run: cd src && npm run build
-
+        run: |
+          cd src
+          NITRO_PRESET=deno pnpm run build
+          
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
@@ -38,7 +45,15 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v1"
-          entrypoint: "./server/index.ts"
+          entrypoint: "server/index.ts"
           root: "src/.output/"
+          import-map: |
+            {
+              "imports": {
+                "http": "node:http",
+                "https": "node:https",
+                "@mswjs/interceptors/": "https://esm.sh/@mswjs/interceptors@0.39.2/"
+              }
+            }
 
 
