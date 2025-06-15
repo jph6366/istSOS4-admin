@@ -35,7 +35,7 @@ jobs:
         working-directory: ./src
 
       - name: Build project
-        run: pnpm run build
+        run: NITRO_PRESET=deno_server pnpm run build
         working-directory: ./src
 
       - name: Upload to Deno Deploy
