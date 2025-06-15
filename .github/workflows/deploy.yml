@@ -28,6 +28,11 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+          cache-dependency-path: src/pnpm-lock.yaml
+
+      - name: Install packages
+        run: pnpm install
+        working-directory: ./src
 
       - name: Build project
         run: NITRO_PRESET=deno_server pnpm run build
