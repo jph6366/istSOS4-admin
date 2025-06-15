@@ -17,32 +17,28 @@ jobs:
     steps:
       - name: Clone repository
         uses: actions/checkout@v4
-      - run: corepack enable
 
       - name: Install Deno
         uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      - name: Set up Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: src/pnpm-lock.yaml
-      - name: Install dependencies
-        run: pnpm install
-        working-directory: ./src
+          node-version: lts/*
 
-      - name: Build project
-        run: pnpm run build
-        working-directory: ./src
+      - name: Install step
+        run: "cd src && pnpm install"
+
+      - name: Build step
+        run: "cd && NITRO_PRESET=deno_server pnpm run build"
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v1"
-          entrypoint: "server/index.ts"
-          root: "src/.output"
-
-
+          entrypoint: ".output/server/index.ts"
+          root: "src/"
+          
+          
