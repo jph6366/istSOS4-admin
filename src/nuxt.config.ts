@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     autoImport: true
   },
   nitro: {
-    preset: "deno",
+    preset: "deno-deploy",
   },
   vite: {
     plugins: [tailwindcss()]
