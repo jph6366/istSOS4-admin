@@ -2,35 +2,50 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-06-05', // must be 2025-01-30 or later
-  // components: [
-  //   // override defaults: no path prefix
-  //   { path: '~/src/layers/site/components', pathPrefix: false },
-  // ],
+  compatibilityDate: '2025-06-05',
   runtimeConfig: {
-    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
-    // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
-    serviceRootUri: 'https://istsos.org/v4/v1.1' // prod
+    serviceRootUri: 'https://istsos.org/v4/v1.1'
   },
   devtools: { enabled: true },
-  extends: [
-    'core',
-  ],
+  extends: ['core'],
   future: {
-    compatibilityVersion: 4,  // To use these auto-imported shared/utils and shared/types
+    compatibilityVersion: 4,
   },
   imports: {
     autoImport: true
   },
   nitro: {
-    preset: "deno-deploy",
+    preset: "deno",
+    routeRules: {
+      '/**': { cors: true }
+    },
+    experimental: {
+      asyncContext: true
+    },
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      target: 'esnext'
+    },
+    optimizeDeps: {
+      exclude: ['@mswjs/interceptors']
+    },
+    ssr: {
+      noExternal: ['@mswjs/interceptors']
+    }
   },
-  modules: [// ...
-    'nuxt-llms', // automatically generates llms.txt markdown documentation for your Nuxt app
-  '@pinia/nuxt', '@nuxt/devtools', '@artmizu/nuxt-prometheus' ],
+  hooks: {
+    'nitro:build:before': (nitro) => {
+      nitro.options.moduleSideEffects.push('@mswjs/interceptors')
+    }
+  },
+  modules: [
+    'nuxt-llms',
+    '@pinia/nuxt',
+    '@nuxt/devtools',
+    '@artmizu/nuxt-prometheus'
+  ],
   llms: {
     domain: 'https://istsos4-admin-v1.deno.dev/', // Update this to your production domain
     title: 'istSOS4 Admin Application',
