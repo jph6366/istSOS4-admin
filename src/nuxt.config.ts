@@ -8,8 +8,9 @@ export default defineNuxtConfig({
   //   { path: '~/src/layers/site/components', pathPrefix: false },
   // ],
   runtimeConfig: {
-    serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1'
-    // dockerRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
+    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
+    // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
+    serviceRootUri: 'https://istsos.org/v4/v1.1' // prod
   },
   devtools: { enabled: true },
   extends: [
