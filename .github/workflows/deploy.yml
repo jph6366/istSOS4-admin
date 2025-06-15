@@ -37,7 +37,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "istsos4-admin-v0"
+          project: "istsos4-admin-v1"
           entrypoint: "server/index.ts"
           root: "src/.output"
           
