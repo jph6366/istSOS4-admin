@@ -1,6 +1,6 @@
 // plugins/myPiniaPlugin.ts
 import { createPiniaOrmAxios } from '@pinia-orm/axios'
-import type { PiniaPluginContext } from 'pinia'
+import { setActivePinia, type PiniaPluginContext } from 'pinia'
 import { createORM } from 'pinia-orm'
 import axios from 'axios'
 import { defineNuxtPlugin } from '#app'
@@ -30,4 +30,5 @@ export default defineNuxtPlugin(({ $pinia }) => {
     ],
   }))
   $pinia.use(ProperPiniaPlugin)
+  setActivePinia($pinia)
 })

@@ -2,7 +2,6 @@
   "version": "5",
   "specifiers": {
     "npm:@artmizu/nuxt-prometheus@^2.5.0": "2.5.0",
-    "npm:@mswjs/interceptors@~0.39.2": "0.39.2",
     "npm:@nuxt/devtools@^2.5.0": "2.5.0_vite@6.3.5__picomatch@4.0.2__jiti@2.4.2_vue@3.5.16__typescript@5.8.3_magicast@0.3.5_typescript@5.8.3",
     "npm:@nuxt/kit@^3.17.5": "3.17.5",
     "npm:@nuxtjs/i18n@^9.5.5": "9.5.5_vue@3.5.16__typescript@5.8.3_vue-i18n@10.0.7__vue@3.5.16___typescript@5.8.3__typescript@5.8.3_vue-router@4.5.1__vue@3.5.16___typescript@5.8.3__typescript@5.8.3_typescript@5.8.3",
@@ -37,7 +36,7 @@
     "@artmizu/nuxt-prometheus@2.5.0": {
       "integrity": "sha512-UAZcpPjCT6DzcFwb3mB0SaLgwriPndrXVjy2+GvV/KGq5PqyxlSDy5mzwzuPozalqLThQq49tLIVhu3brD9TVg==",
       "dependencies": [
-        "@mswjs/interceptors@0.36.10",
+        "@mswjs/interceptors",
         "consola",
         "defu",
         "h3",
@@ -809,18 +808,6 @@
         "strict-event-emitter"
       ],
       "tarball": "https://registry.npmmirror.com/@mswjs/interceptors/-/interceptors-0.36.10.tgz"
-    },
-    "@mswjs/interceptors@0.39.2": {
-      "integrity": "sha512-RuzCup9Ct91Y7V79xwCb146RaBRHZ7NBbrIUySumd1rpKqHL5OonaqrGIbug5hNwP/fRyxFMA6ISgw4FTtYFYg==",
-      "dependencies": [
-        "@open-draft/deferred-promise",
-        "@open-draft/logger",
-        "@open-draft/until",
-        "is-node-process",
-        "outvariant",
-        "strict-event-emitter"
-      ],
-      "tarball": "https://registry.npmmirror.com/@mswjs/interceptors/-/interceptors-0.39.2.tgz"
     },
     "@napi-rs/wasm-runtime@0.2.11": {
       "integrity": "sha512-9DPkXtvHydrcOsopiYpUgPHpmj0HWZKMUnL2dZqpvC42lsratuBG06V5ipyno0fUek5VlFsNQ+AcFATSrJXgMA==",
@@ -7105,7 +7092,6 @@
     "packageJson": {
       "dependencies": [
         "npm:@artmizu/nuxt-prometheus@^2.5.0",
-        "npm:@mswjs/interceptors@~0.39.2",
         "npm:@nuxt/devtools@^2.5.0",
         "npm:@nuxt/kit@^3.17.5",
         "npm:@nuxtjs/i18n@^9.5.5",
