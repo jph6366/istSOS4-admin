@@ -28,7 +28,7 @@
   - CARE principles
   - INSPIRE principles
 
-- Nuxt.js ( v4 )
+- Nuxt.js ( v4 compatability)
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
   - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms)
   - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)
