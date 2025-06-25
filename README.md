@@ -1,10 +1,3 @@
-![](https://istsos.org/assets/img/istsos_bars_white.png)
-![](https://istsos.org/assets/img/OSGeo_incubation.png)
-# [istSOS.](https://istsos.org/)
-
-**An [OGC SOS](https://www.ogc.org/standards/sos/) server implementation written in Python, distributed under the GPL v2 license.**
-
-
 # istSOS4-Nuxt
 
 **Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured idiomaticly, also similarly istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
@@ -35,7 +28,7 @@
   - CARE principles
   - INSPIRE principles
 
-- Nuxt.js ( v4 )
+- Nuxt.js ( v4 compatability)
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
   - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms)
   - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)
@@ -56,6 +49,12 @@ My workspace is setup to compose the istSOS4 and istSOS4-admin services.
   
 ## Synopsis
 This project aims to develop a web-based administration interface for istSOS, making it easier to manage and monitor SensorThings API components. The interface will provide a user-friendly way to register, for example, new Sensors and Things, set metadata, and monitor sensor metrics such as received data, transmission delays, and overall system health.
+
+![](https://istsos.org/assets/img/istsos_bars_white.png)
+![](https://istsos.org/assets/img/OSGeo_incubation.png)
+## [istSOS.](https://istsos.org/)
+### What is istSOS?
+**An [OGC SOS](https://www.ogc.org/standards/sos/) server implementation written in Python, distributed under the GPL v2 license.**
 
 ### Benefits to the Community
 Simplified Sensor Management: Users will be able to register, update, and manage SensorThings API components through an intuitive web interface.
