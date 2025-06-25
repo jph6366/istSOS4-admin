@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-06-05',
   runtimeConfig: {
+    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
+    // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
     serviceRootUri: 'https://istsos.org/v4/v1.1'
   },
   devtools: { enabled: true },
@@ -28,23 +30,11 @@ export default defineNuxtConfig({
     build: {
       target: 'esnext'
     },
-    optimizeDeps: {
-      exclude: ['@mswjs/interceptors']
-    },
-    ssr: {
-      noExternal: ['@mswjs/interceptors']
-    }
-  },
-  hooks: {
-    'nitro:build:before': (nitro) => {
-      nitro.options.moduleSideEffects.push('@mswjs/interceptors')
-    }
   },
   modules: [
     'nuxt-llms',
     '@pinia/nuxt',
     '@nuxt/devtools',
-    '@artmizu/nuxt-prometheus'
   ],
   llms: {
     domain: 'https://istsos4-admin-v1.deno.dev/', // Update this to your production domain
@@ -75,7 +65,7 @@ export default defineNuxtConfig({
     ],
     notes: [
       'This application uses Deno as the server runtime preset.',
-      'Built with TypeScript and Vue 3 for type safety and modern development.',
+      'Built with TypeScript and Nuxt.js (v4 compatible) for type safety and modern development.',
       'Uses Pinia for state management and TailwindCSS with DaisyUI for styling.'
     ],
     full: {
