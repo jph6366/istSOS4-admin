@@ -1,6 +1,12 @@
 # istSOS4-Nuxt
 
-**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured idiomaticly, also similarly istSOS4 pythonic codebase. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+![](./istSOS-system-design.gif)
+
+**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured to administer the interconnection of the Internet of Things devices, data, and applications over nuxt client-server application, with stylistic conventions of deno and typescript. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+
+### Layman's terms
+**FastAPI + SQLAlchemy + GeoAlchemy + o-data-query: This is your Chef in the kitchen. They understand the recipe (SensorThings API), know how to get ingredients from the elephant in the pantry (PostGIS), prepare the dish (process OData query, fetch data), and serve it on a plate (JSON).
+Nuxt + Pinia + Pinia ORM: This is your Dining Room Manager and Display Cases. They receive the prepared dishes from the chef (JSON), organize them neatly in their visual splendor (Pinia ORM store), allow customers to browse and select what they want to see (client-side queries), and present it vuetifully (Vue components). The Dining Room Manager doesn't go to the kitchen to fetch ingredients; they just deal with what the Chef serves.**
 
 ### Other istSOS4 projects
   - istSOS4 backend
@@ -31,7 +37,6 @@
 - Nuxt.js ( v4 compatability)
   - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
   - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms)
-  - [Nuxt-Prometheus](https://github.com/artmizu/nuxt-prometheus)
   - Nuxt Dev Tools
 - Axios & H3
 - TailwindCSS
