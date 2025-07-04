@@ -1,6 +1,7 @@
 <template>
     <!-- <MainHeader /> -->
-    <Observations />
+    <MaplibreGL />
+    <Observation />
     <slot />
     <MainFooter />
 </template>

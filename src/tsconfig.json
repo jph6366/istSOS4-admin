@@ -4,6 +4,7 @@
   "compilerOptions": {
     // "exactOptionalPropertyTypes": true,
     "experimentalDecorators": true,
+    "useDefineForClassFields": true,
     "emitDecoratorMetadata": true,
     "types": [ "reflect-metadata" ],
   }

@@ -1,4 +1,6 @@
 import { Model } from "pinia-orm";
+import { Datastream } from "./Datastream";
+import { FeatureOfInterest } from "./FeatureOfInterest";
 
 export class Observation extends Model {
     static override entity = "Observations";
@@ -16,6 +18,8 @@ export class Observation extends Model {
             resultQuality: this.attr(null),
             validTime: this.attr(null),
             parameters: this.attr(null),
+            Datastream: this.hasOne(Datastream, "@iot.selfLink", "@iot.selfLink" ),
+            FeatureOfInterest: this.hasOne(FeatureOfInterest, "@iot.selfLink", "@iot.selfLink" )
         }
     }
 }

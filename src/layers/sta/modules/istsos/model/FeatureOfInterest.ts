@@ -18,4 +18,9 @@ export class FeatureOfInterest extends Model {
       properties: this.attr(null),
     };
   }
+
+  get coordinates () {
+    // @ts-expect-error it does exist on FeatureOfInterest
+    return this.feature;
+  }
 }

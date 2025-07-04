@@ -28,7 +28,7 @@ const observationRepository = new Observations(ObservationImplementation);
 const getObservationsUseCase = new GetObservation(observationRepository);
 
 // Define the ID of the observation to fetch
-const OBSERVATION_ID = 105409;
+const OBSERVATION_ID = 2;
 
 // Fetch the observation when the component is mounted
 onMounted(async () => {

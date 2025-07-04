@@ -1,0 +1,5 @@
+<template>
+    <MaplibreGL />
+    <slot />
+</template>
+

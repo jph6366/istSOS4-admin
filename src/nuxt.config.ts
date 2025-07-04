@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     serviceRootUri: 'https://istsos.org/v4/v1.1'
   },
   devtools: { enabled: true },
-  extends: ['core'],
+  extends: ['core', 'layers'],
   future: {
     compatibilityVersion: 4,
   },
