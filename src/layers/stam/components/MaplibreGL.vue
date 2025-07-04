@@ -64,47 +64,25 @@ const featuresofInterest = computed(() => featureOfInterestRepo.all())
 // MapTiler client initialization status
 const maptilerInitialized = ref(false);
 
-// Get runtime config to access environment variables
-const runtimeConfig = useRuntimeConfig();
-
-// MapTiler API key
-const maptilerApiKey = ref('');
+// MapTiler API key - replace with your actual key in a production environment
+// Best practice is to store this in an environment variable
 
 // Initialize MapTiler client
 onMounted(async () => {
   try {
-    // Check if we have access to the API key directly from runtime config
-    if (runtimeConfig.maptilerApiKey) {
-      maptilerApiKey.value = runtimeConfig.maptilerApiKey;
-    } 
-    // If not available in client-side config, try to verify via the API
-    else {
-      try {
-        // Call our environment check API
-        const { data } = await useFetch('/api/env-check');
-        
-        if (data.value?.environmentStatus?.hasMapTilerApiKey) {
-          console.log('MapTiler API key is available on the server');
-          // For security, we don't expose the actual key to the client
-          // The server-side API calls that need the key will have access to it
-        } else {
-          console.warn('MapTiler API key is not set on the server. Map coordinate transformation may not work correctly.');
-          // Fallback to using a key for development only - remove in production
-          maptilerApiKey.value = ''; // Empty for security, should be set on server
-        }
-      } catch (fetchError) {
-        console.error('Failed to check environment variables status:', fetchError);
-      }
+    // Set API key for MapTiler services
+    const runtimeConfig = useRuntimeConfig();
+    // Access the client-exposed public key
+    if (!runtimeConfig.public.maptilerApiKey) {
+      console.error('MapTiler API key is missing. Please set the NUXT_PUBLIC_MAPTILER_API_KEY environment variable.');
+      return;
     }
     
-    // Set the API key if we have one
-    if (maptilerApiKey.value) {
-      config.apiKey = maptilerApiKey.value;
-    }
+    config.apiKey = runtimeConfig.public.maptilerApiKey;
     
     // Mark MapTiler as initialized since we've set the API key
     maptilerInitialized.value = true;
-    console.log('MapTiler client initialized successfully')
+    console.log('MapTiler client initialized successfully with key:', config.apiKey)
     
     // Now that MapTiler is initialized, update coordinates for any existing features
     if (featuresofInterest.value?.length) {
@@ -165,42 +143,15 @@ const transformCoordinates = async (feature) => {
     
     const epsgCode = parseInt(epsgCodeMatch[1], 10);
     
-    // Determine whether to use client-side or server-side transformation
-    let result;
-    
-    // If we have the API key client-side, use direct transformation
-    if (config.apiKey) {
-      // Use the MapTiler Client API for coordinate transformation
-      result = await coordinates.transform(
-        sourceCoords,  // Can be [x, y] or {lng: x, lat: y}
-        { 
-          sourceCrs: epsgCode,  // Source CRS (e.g., 2056 for Swiss projection)
-          targetCrs: 4326       // Target CRS (WGS84)
-        }
-      );
-    } 
-    // Otherwise use server-side transformation API
-    else {
-      // Call the server endpoint to perform the transformation
-      const { data, error } = await useFetch('/api/transform-coordinates', {
-        method: 'POST',
-        body: {
-          sourceCoords,
-          sourceCrs: epsgCode,
-          targetCrs: 4326
-        }
-      });
-      
-      if (error.value) {
-        throw new Error(`Server transformation failed: ${error.value.message}`);
+    // Use the modern MapTiler Client API for coordinate transformation
+    // The API supports both single coordinates and arrays of coordinates
+    const result = await coordinates.transform(
+      sourceCoords,  // Can be [x, y] or {lng: x, lat: y}
+      { 
+        sourceCrs: epsgCode,  // Source CRS (e.g., 2056 for Swiss projection)
+        targetCrs: 4326       // Target CRS (WGS84)
       }
-      
-      if (!data.value?.success) {
-        throw new Error(`Transformation API error: ${data.value?.error || 'Unknown error'}`);
-      }
-      
-      result = data.value.result;
-    }
+    );
     
     // Handle different result formats
     if (result) {

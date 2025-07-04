@@ -7,13 +7,11 @@ export default defineNuxtConfig({
     // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
     // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
     serviceRootUri: 'https://istsos.org/v4/v1.1',
-    // API keys that should remain private (server-side only)
-    // These will be available in Deno via Deno.env.get() on the server
-    maptilerApiKey: '',  // Will be overridden by MAPTILER_API_KEY in Deno Deploy
-    // Keys that can be exposed to the client
+    // Server-side only MapTiler key
+    maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
     public: {
-      // If you need to expose any keys to the client side
-      deployEnvironment: process.env.NODE_ENV || 'development'
+      // Client-side exposed MapTiler key
+      maptilerApiKey: process.env.NUXT_PUBLIC_MAPTILER_API_KEY || '',
     }
   },
   devtools: { enabled: true },

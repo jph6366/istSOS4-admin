@@ -3,8 +3,15 @@ import { resolve } from 'path'
 
 // debug
 console.log('Adding layer: maplibre')
-// site feels like a nice bucket here for non-specific concerns
 export default defineNuxtConfig({
+   runtimeConfig: {
+      maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',  // Server-side only key
+      public: {
+         // Make sure it's available on both server and client
+         // You can set a default development key here, but for production use environment variables
+         maptilerApiKey: process.env.NUXT_PUBLIC_MAPTILER_API_KEY || process.env.NUXT_MAPTILER_API_KEY || '',
+      }
+  }, 
   components: [
     {
       // can be relative, alias or absolute
