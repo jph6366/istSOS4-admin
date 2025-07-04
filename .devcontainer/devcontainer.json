@@ -20,7 +20,7 @@
       ]
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "pnpm install",
   "remoteUser": "node",
   "runServices": [
     "database",

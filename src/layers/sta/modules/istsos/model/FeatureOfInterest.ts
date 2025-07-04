@@ -1,5 +1,4 @@
 import { Model } from "pinia-orm";
-import Point from "geojson";
 export class FeatureOfInterest extends Model {
   static override entity = "FeaturesOfInterest";
 
@@ -14,13 +13,8 @@ export class FeatureOfInterest extends Model {
       encodingType: this.attr(""),// ValueCode application/geo+json
     // a thing can be geo-referenced using different space models
             // specialized extensions of GML: CityGML, SensorML, IndoorML, .etc.
-      feature: this.attr(Point),
+      feature: this.attr(null),
       properties: this.attr(null),
     };
-  }
-
-  get coordinates () {
-    // @ts-expect-error it does exist on FeatureOfInterest
-    return this.feature;
   }
 }

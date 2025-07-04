@@ -6,6 +6,5 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": true,
     "emitDecoratorMetadata": true,
-    "types": [ "reflect-metadata" ],
   }
 }
