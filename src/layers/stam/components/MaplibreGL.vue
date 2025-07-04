@@ -34,6 +34,34 @@
         </MglGeoJsonSource>
         <MglNavigationControl />
       </MglMap>
+      
+      <!-- MapTiler Attribution Logo with Toggle - Only show when initialized -->
+      <div 
+        v-if="maptilerInitialized" 
+        class="maptiler-attribution-container"
+      >
+        <div 
+          class="maptiler-toggle" 
+          @click="showFullMapTilerLogo = !showFullMapTilerLogo"
+          :title="showFullMapTilerLogo ? 'Collapse logo' : 'Show full MapTiler logo'"
+        >
+          <img 
+            src="https://media.maptiler.com/old/mediakit/logo/maptiler-icon.png?_gl=1*11v4th6*_gcl_au*NzQ4ODcyNTA4LjE3NTE2NDkxNTU.*_ga*Nzk4NzA2MTQyLjE3NTE2NDkxNTQ.*_ga_K4SXYBF4HT*czE3NTE2NTc2MDQkbzMkZzEkdDE3NTE2NTgzOTEkajM4JGwwJGgw" 
+            alt="MapTiler icon" 
+            class="maptiler-icon" 
+          />
+        </div>
+        <a 
+          v-if="showFullMapTilerLogo"
+          href="https://www.maptiler.com" 
+          target="_blank" 
+          class="maptiler-attribution" 
+          rel="noopener noreferrer"
+          title="MapTiler - Maps for developers"
+        >
+          <img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo with name" />
+        </a>
+      </div>
     </div>
   </ClientOnly>
 </template>
@@ -53,7 +81,7 @@ import {
 
 const style = 'https://demotiles.maplibre.org/style.json';
 const center = [-1.559482, 47.21322];
-const zoom = 1;
+const zoom = 5;
 
 // State for popup
 const selectedFeature = ref(null);
@@ -63,6 +91,9 @@ const featuresofInterest = computed(() => featureOfInterestRepo.all())
 
 // MapTiler client initialization status
 const maptilerInitialized = ref(false);
+
+// State for toggling the MapTiler logo with name - start expanded
+const showFullMapTilerLogo = ref(true);
 
 // MapTiler API key - replace with your actual key in a production environment
 // Best practice is to store this in an environment variable
@@ -278,6 +309,7 @@ const handleLayerClick = (event) => {
   width: 100%;
   height: 400px; /* Set a fixed height */
   min-height: 400px;
+  position: relative; /* Required for absolute positioning of the logo */
 }
 
 .popup-content {
@@ -295,5 +327,70 @@ const handleLayerClick = (event) => {
 .popup-content p {
   margin-bottom: 5px;
   font-size: 14px;
+}
+
+/* MapTiler Attribution Styles */
+.maptiler-attribution-container {
+  position: absolute;
+  bottom: 4px;
+  left: 0px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.maptiler-toggle {
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.maptiler-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.maptiler-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.maptiler-attribution {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 4px;
+  border-radius: 3px;
+  margin-left: 4px;
+  display: block;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.maptiler-attribution:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.maptiler-attribution img {
+  height: 20px;
+  width: auto;
+  display: block;
 }
 </style>
