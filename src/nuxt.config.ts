@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
     // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
-    // serviceRootUri: 'https://istsos.org/v4/v1.1',
+    // serviceRootUri: 'https://istsos.org/v4/v1.1'
     ,maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
     // OpenTelemetry server-side config
     otel: {
@@ -40,9 +40,6 @@ export default defineNuxtConfig({
   nitro: {
     preset: "deno",
     routeRules: {
-      '/api/**': {
-        proxy: `${import.meta.env.ApiUrl}/**`,
-      },
       '/**': { cors: true }
     },
     experimental: {
