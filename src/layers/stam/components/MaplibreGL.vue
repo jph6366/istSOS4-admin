@@ -113,7 +113,6 @@ onMounted(async () => {
     
     // Mark MapTiler as initialized since we've set the API key
     maptilerInitialized.value = true;
-    console.log('MapTiler client initialized successfully with key:', config.apiKey)
     
     // Now that MapTiler is initialized, update coordinates for any existing features
     if (featuresofInterest.value?.length) {

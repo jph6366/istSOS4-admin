@@ -4,14 +4,29 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-06-05',
   runtimeConfig: {
-    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
+    serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
     // serviceRootUri: 'http://api:5000/istsos4/v1.1' // docker-composed network address see istSOS4 docker-compose.yml
-    serviceRootUri: 'https://istsos.org/v4/v1.1',
-    // Server-side only MapTiler key
-    maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
+    // serviceRootUri: 'https://istsos.org/v4/v1.1',
+    ,maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
+    // OpenTelemetry server-side config
+    otel: {
+      exporterOtlpEndpoint: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
+      exporterOtlpHeaders: process.env.OTEL_EXPORTER_OTLP_HEADERS,
+      resourceAttributes: process.env.OTEL_RESOURCE_ATTRIBUTES,
+      serviceName: process.env.OTEL_SERVICE_NAME,
+    },
+    
+    // Public runtime config (available client-side)
     public: {
-      // Client-side exposed MapTiler key
+      // Public MapTiler key
       maptilerApiKey: process.env.NUXT_PUBLIC_MAPTILER_API_KEY || '',
+      // OpenTelemetry public config
+      otel: {
+        exporterOtlpEndpoint: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
+        exporterOtlpHeaders: process.env.OTEL_EXPORTER_OTLP_HEADERS,
+        resourceAttributes: process.env.OTEL_RESOURCE_ATTRIBUTES,
+        serviceName: process.env.OTEL_SERVICE_NAME,
+      }
     }
   },
   devtools: { enabled: true },
@@ -25,6 +40,9 @@ export default defineNuxtConfig({
   nitro: {
     preset: "deno",
     routeRules: {
+      '/api/**': {
+        proxy: `${import.meta.env.ApiUrl}/**`,
+      },
       '/**': { cors: true }
     },
     experimental: {
