@@ -1,7 +1,8 @@
 <template>
-    <!-- <MainHeader /> -->
-    <MaplibreGL />
-    <Observation />
+    <STAMLibreGL />
+    <br/>
+    <br/>
+    <SensorThings  />
     <slot />
     <MainFooter />
 </template>

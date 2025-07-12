@@ -33,7 +33,6 @@ export default defineNuxtConfig({
     shared: 'shared',
   },
   modules: [
-    'nuxt-maplibre'
   ],
 
   // imports: {

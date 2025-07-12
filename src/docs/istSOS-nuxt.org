@@ -147,6 +147,25 @@ SCHEDULED: <2025-06-02 Mon>
          - As for constructor injection, the advantage is you don't have to know the preferred order to check for providers in because it is handled at a high-level by DI platform.
 *** Factory Class
 - If you are creating database entities, you should rather have some factory class which you will inject instead to your controller
+*** MVVM
+- the separation of the development of a GUI from the development of back-end logic
+  - view is not dependent upon any specific model platform
+**** ViewModel
+- is an abstraction of view presenting public properties and commands
+  - automates communication between the view and its bounded properties to a state of the data in the model
+***** Mediator Pattern
+- a behavioral pattern
+  - objects no longer directly communicate
+    - the mediator is instead used to communicate between objects
+      - to reduce tight coupling between interacting objects
+**** Binder
+- declarative data and command-binding are implicit in MVVM
+  - a key feature of the TypeScript is its /Semantic/ system
+    - in order to assist type-checking, the _binder_ (binder.ts) is used to connect various parts of the source code into a coherent type system
+      - the main responsibility of the _binder_ is to create /Symbols/
+        - symbols connect declaration nodes in the AST to other declarations contributing to the same entity (defined in core.ts)
+    - The binder walks the tree visiting each declaration in the tree
+      - each declaration it finds, it creates a symbol in a /SymbolTable/ in the containing node, like a function, block or module file, that is the current scope.
 
 ** IDEA Nuxt Layers
 - Siloing files by domain
