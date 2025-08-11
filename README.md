@@ -39,7 +39,6 @@ Nuxt + Pinia + Pinia ORM: This is your Dining Room Manager and Display Cases. Th
   - Nuxt Dev Tools
 - Axios & H3
 - TailwindCSS
-- Tailwind-Variants
 - DaisyUI
 - Pinia
 - Pinia-ORM
