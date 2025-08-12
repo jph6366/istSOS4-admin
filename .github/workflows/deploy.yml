@@ -23,13 +23,13 @@ jobs:
           cache: pnpm
 
       - run: "pnpm install"
-      - run: "pnpm run build"
+      - run: "npx nuxt build --preset=deno_deploy"
         env:
           NITRO_PRESET: deno_deploy
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: "istsos4-admin-v1"
-          entrypoint: "./server/index.ts"
+          entrypoint: "server/index.mjs"
           root: ".output/"
           

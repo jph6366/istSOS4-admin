@@ -2,7 +2,7 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-06-05',
+  compatibilityDate: '2025-08-01',
   runtimeConfig: {
     // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1/' // dev
     // serviceRootUri: 'https://iot.hamburg.de/v1.1/' // Smart City
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     autoImport: true
   },
   nitro: {
-    preset: "deno",
+    preset: "deno-deploy",
     routeRules: {
       '/**': { cors: true }
     },
