@@ -1,0 +1,23 @@
+#+title: Ist Sos Agile
+
+
+
+* TODO
+
+** Remove Axios and Write Pinia-ORM h3 plugin
+
+* OPEN
+
+** Replace navLinks with Pinia ORM model relationships
+
+** Add SensorThings components
+
+*** Table View
+**** Entity View
+*** Map View
+
+*** Chart View
+
+*** Loading Views
+
+* CLOSED
