@@ -7,7 +7,7 @@ import SensorThingsDemo from '~/layers/sta/shared/SensorThingsDemo';
 import SensorThingsImpl from '~/layers/sta/shared/SensorThingsImpl';
 
 const staEntitySets = useStApi()
-const selectedEntityType = ref<StaEntityType>(FeatureOfInterest);
+const selectedEntityType = ref<StaEntityType>();
 const entitySet = ref<StaEntityType[]>();
 
 const updateSelectedType = (newType: string) => {
@@ -16,7 +16,7 @@ const updateSelectedType = (newType: string) => {
 
 
 watch(selectedEntityType, async (newType) => {
-    const implementation = new SensorThingsImpl();
+    const implementation = new SensorThingsDemo();
     const repository = new SensorThings(implementation);
     const usecase = new GetAllEntityType(repository);
     const result = await usecase.invoke(newType);
@@ -24,11 +24,11 @@ watch(selectedEntityType, async (newType) => {
 });
 
 onMounted(async () => {
-    const implementation = new SensorThingsImpl();
-    const repository = new SensorThings(implementation);
-    const usecase = new GetAllEntityType(repository);
-    const result = await usecase.invoke(selectedEntityType.value);
-    entitySet.value = result.value;
+    // const implementation = new SensorThingsImpl();
+    // const repository = new SensorThings(implementation);
+    // const usecase = new GetAllEntityType(repository);
+    // const result = await usecase.invoke(selectedEntityType.value);
+    // entitySet.value = result.value;
 })
 
 </script>
