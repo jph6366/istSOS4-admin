@@ -25,11 +25,6 @@ export default defineNuxtConfig({
     public: 'public',
     shared: 'shared',
   },
-  nitro: {
-    plugins: [
-      '~/layers/site/modules/runtime/server/plugins/llms-site.ts'
-    ]
-  }
   // imports: {
   //   dirs: [
   //     'composables/**'

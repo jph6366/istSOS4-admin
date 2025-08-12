@@ -59,47 +59,47 @@ export default defineNuxtConfig({
     },
   },
   modules: [
-    'nuxt-llms',
+    // 'nuxt-llms',
     '@pinia/nuxt',
     '@nuxt/devtools',
   ],
-  llms: {
-    domain: 'https://istsos4-admin-v1.deno.dev/', // Update this to your production domain
-    title: 'istSOS4 Admin Application',
-    description: 'A modern Nuxt.js application for managing istSOS4 - an IoT sensor observation service implementing the OGC SensorThings API standard.',
-    sections: [
-      {
-        title: 'Architecture',
-        description: 'The application is built using a layered architecture pattern with Nuxt layers for modularity and maintainability.',
-        links: [
-          {
-            title: 'Core Layer',
-            description: 'Core functionality including assets, plugins, and shared components',
-            href: '/core'
-          },
-          {
-            title: 'Site Layer',
-            description: 'General site components, layouts, and pages for non-specific concerns',
-            href: '/site'
-          },
-          {
-            title: 'STA Layer',
-            description: 'SensorThings API implementation with models, repositories, and components',
-            href: '/sta'
-          }
-        ]
-      }
-    ],
-    notes: [
-      'This application uses Deno as the server runtime preset.',
-      'Built with TypeScript and Nuxt.js (v4 compatible) for type safety and modern development.',
-      'Uses Pinia for state management and TailwindCSS with DaisyUI for styling.'
-    ],
-    full: {
-      title: 'istSOS4 Admin - Complete Documentation',
-      description: 'Comprehensive documentation for the istSOS4 Admin application including API references, component documentation, and development guides.'
-    }
-  },
+  // llms: {
+  //   domain: 'https://istsos4-admin-v1.deno.dev/', // Update this to your production domain
+  //   title: 'istSOS4 Admin Application',
+  //   description: 'A modern Nuxt.js application for managing istSOS4 - an IoT sensor observation service implementing the OGC SensorThings API standard.',
+  //   sections: [
+  //     {
+  //       title: 'Architecture',
+  //       description: 'The application is built using a layered architecture pattern with Nuxt layers for modularity and maintainability.',
+  //       links: [
+  //         {
+  //           title: 'Core Layer',
+  //           description: 'Core functionality including assets, plugins, and shared components',
+  //           href: '/core'
+  //         },
+  //         {
+  //           title: 'Site Layer',
+  //           description: 'General site components, layouts, and pages for non-specific concerns',
+  //           href: '/site'
+  //         },
+  //         {
+  //           title: 'STA Layer',
+  //           description: 'SensorThings API implementation with models, repositories, and components',
+  //           href: '/sta'
+  //         }
+  //       ]
+  //     }
+  //   ],
+  //   notes: [
+  //     'This application uses Deno as the server runtime preset.',
+  //     'Built with TypeScript and Nuxt.js (v4 compatible) for type safety and modern development.',
+  //     'Uses Pinia for state management and TailwindCSS with DaisyUI for styling.'
+  //   ],
+  //   full: {
+  //     title: 'istSOS4 Admin - Complete Documentation',
+  //     description: 'Comprehensive documentation for the istSOS4 Admin application including API references, component documentation, and development guides.'
+  //   }
+  // },
   typescript: {
     typeCheck: false
   },
