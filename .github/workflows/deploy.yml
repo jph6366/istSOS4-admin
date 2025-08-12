@@ -9,7 +9,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    
+
     permissions:
       id-token: write # Needed for auth with Deno Deploy
       contents: read # Needed to clone the repository
@@ -22,8 +22,8 @@ jobs:
           node-version: lts/*
           cache: pnpm
 
-      - run: "cd src && pnpm install"
-      - run: "cd src && pnpm run build"
+      - run: "pnpm install"
+      - run: "pnpm run build"
         env:
           NITRO_PRESET: deno_deploy
       - name: Deploy to Deno Deploy
