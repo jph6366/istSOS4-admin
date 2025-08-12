@@ -23,7 +23,7 @@ jobs:
           cache: pnpm
 
       - run: "pnpm install"
-      - run: "npx nuxt build --preset=deno_deploy"
+      - run: "npx nuxt build --preset=deno_server"
         env:
           NITRO_PRESET: deno_deploy
       - name: Deploy to Deno Deploy
