@@ -1,5 +1,4 @@
-import { fileURLToPath } from 'url'
-import { resolve } from 'path'
+
 
 // debug
 console.log('Adding layer: site')
