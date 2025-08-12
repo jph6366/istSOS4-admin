@@ -1,5 +1,4 @@
 // plugins/myPiniaPlugin.ts
-import { createPiniaOrmAxios } from '@pinia-orm/axios'
 import { setActivePinia, type PiniaPluginContext } from 'pinia'
 import { createORM } from 'pinia-orm'
 import { defineNuxtPlugin } from '#app'
