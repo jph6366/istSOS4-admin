@@ -15,9 +15,9 @@ jobs:
       contents: read # Needed to clone the repository
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - run: corepack enable
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v3
         with:
           node-version: node-version:18
           cache: pnpm
