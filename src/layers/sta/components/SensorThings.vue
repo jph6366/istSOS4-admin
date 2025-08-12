@@ -17,17 +17,17 @@ import { SensorThings } from '#imports';
 import { GetOneOfEntityType } from '../modules/istsos/usecase/read/GetOneOfEntityType';
 import SensorThingsImpl from '../shared/SensorThingsImpl';
 import { Observation } from '../modules/istsos/model/Observation';
-import type { EntityType } from '../modules/istsos/model/SensorThings.types';
+import type { StaEntityType } from '../modules/istsos/model/SensorThings.types';
 import { GetLinkedEntityType } from '../modules/istsos/usecase/read/GetLinkedEntity';
 import { FeatureOfInterest } from '../modules/istsos/model/FeatureOfInterest';
 import { GetLinkedEntitySet } from '../modules/istsos/usecase/read/GetLinkedEntitySet';
 import { GetAllEntityType } from '../modules/istsos/usecase/read/GetAllEntityType';
-
+import { useSensorThingsStore } from '../stores/SensorThings';
 // Define reactive variables for observation data, loading state, and errors
 const observation = ref<any>(null);
 const loading = ref(true);
 const error = ref<Error | null>(null);
-
+const runtimeConfig = useRuntimeConfig();
 // Initialize your use case and repository
 const implementation = new SensorThingsImpl();
 const repository = new SensorThings(implementation);
@@ -39,12 +39,13 @@ const GetLinkedEntitySetuseCase = new GetLinkedEntitySet(repository);
 
 // Define the ID of the ENTITY to fetch
 const ENTITY_ID = 1;
-
+const STAstore = useSensorThingsStore(this);
 // Fetch the observation when the component is mounted
 onMounted(async () => {
   try {
     // Invoke the use case to get the observation
     const fetchedObservation = await getAllEntityuseCase.invoke(FeatureOfInterest);
+    STAstore.generateQuery(runtimeConfig.public.serviceRootUri, FeatureOfInterest.entity) 
     observation.value = fetchedObservation.value; // Assign the fetched data to the reactive variable
   } catch (err: any) {
     error.value = err; // Set the error if something goes wrong

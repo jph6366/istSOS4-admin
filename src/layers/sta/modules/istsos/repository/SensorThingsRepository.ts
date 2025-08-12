@@ -1,10 +1,10 @@
-import type { EntityType } from "../model/SensorThings.types";
+import type { StaEntityType } from "../model/SensorThings.types";
 
 export interface SensorThingsRepository {
-    getOneOfEntityType(entity: EntityType, id: number): Promise<EntityType>
-    getAllEntityType(entity: EntityType): Promise<EntityType[]>
-    getLinkedEntity(entity: EntityType, id: number, lentity: EntityType): Promise<EntityType>
-    getLinkedEntitySet(entity: EntityType, id: number, lentity: EntityType): Promise<EntityType[]>
+    getOneOfEntityType(entity: StaEntityType, id: number): Promise<StaEntityType>
+    getAllEntityType(entity: StaEntityType): Promise<StaEntityType[]>
+    getLinkedEntity(entity: StaEntityType, id: number, lentity: StaEntityType): Promise<StaEntityType>
+    getLinkedEntitySet(entity: StaEntityType, id: number, lentity: StaEntityType): Promise<StaEntityType[]>
 }
 
 

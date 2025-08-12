@@ -1,8 +1,8 @@
-import type { EntityType } from "../../model/SensorThings.types"
+import type { StaEntityType } from "../../model/SensorThings.types"
 import type { SensorThings } from "#imports"
 
 export interface GetLinkedEntityTypeUseCase {
-    invoke: (entity: EntityType ,id: number, lentity: EntityType) => Promise<EntityType>
+    invoke: (entity: StaEntityType ,id: number, lentity: StaEntityType) => Promise<StaEntityType>
 }
 
 export class GetLinkedEntityType implements GetLinkedEntityTypeUseCase {
@@ -11,7 +11,7 @@ export class GetLinkedEntityType implements GetLinkedEntityTypeUseCase {
         this.STARepo = _STARepo
     }
 
-    async invoke(entity: EntityType ,id: number, lentity: EntityType) {
+    async invoke(entity: StaEntityType ,id: number, lentity: StaEntityType) {
         return this.STARepo.getbyLinkedEntity(entity, id, lentity)
     }
 }

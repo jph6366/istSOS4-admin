@@ -1,9 +1,9 @@
 import type { SensorThings } from "#imports";
-import type { EntityType } from "../../model/SensorThings.types";
+import type { StaEntityType } from "../../model/SensorThings.types";
 import type { SensorThingsRepository } from "../../repository/SensorThingsRepository";
 
 export interface GetAllEntityTypeUseCase {
-    invoke: (entity: EntityType) => Promise<EntityType[]>;
+    invoke: (entity: StaEntityType) => Promise<StaEntityType[]>;
 }
 
 export class GetAllEntityType implements GetAllEntityTypeUseCase {
@@ -12,7 +12,7 @@ export class GetAllEntityType implements GetAllEntityTypeUseCase {
         this.STARepo = _STARepo;
     }
 
-    async invoke(entity: EntityType): Promise<EntityType[]> {
+    async invoke(entity: StaEntityType): Promise<StaEntityType[]> {
         return this.STARepo.getbyType(entity);
     }
 }

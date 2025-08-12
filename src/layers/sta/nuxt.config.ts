@@ -9,7 +9,6 @@ export default defineNuxtConfig({
     {
       // can be relative, alias or absolute
       path: 'components',
-
       // components organised in sub-folders should not be prefixed
       pathPrefix: false,
 
@@ -22,18 +21,17 @@ export default defineNuxtConfig({
     modules: 'modules',
     public: 'public',
     shared: 'shared',
+    plugins: 'plugins',
   },
-  nitro: {
-    plugins: [
-      '~/layers/sta/modules/istsos/runtime/server/plugins/llms-sta.ts'
-    ]
-  }
+  modules: [
+    '@pinia/nuxt',
+  ],
   // imports: {
   //   dirs: [
   //     'composables/**'
   //   ]
   // },
-  // pinia: {
-  //   storesDirs: ['stores/**']
-  // },
+  pinia: {
+    storesDirs: ['stores/**']
+  }
 })

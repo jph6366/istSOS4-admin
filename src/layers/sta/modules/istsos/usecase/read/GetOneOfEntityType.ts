@@ -1,8 +1,8 @@
-import type { EntityType } from "../../model/SensorThings.types"
+import type { StaEntityType } from "../../model/SensorThings.types"
 import type { SensorThings } from "#imports"
 
 export interface GetOneOfEntityTypeUseCase {
-    invoke: (entity: EntityType ,id: number) => Promise<EntityType>
+    invoke: (entity: StaEntityType ,id: number) => Promise<StaEntityType>
 }
 
 export class GetOneOfEntityType implements GetOneOfEntityTypeUseCase {
@@ -11,7 +11,7 @@ export class GetOneOfEntityType implements GetOneOfEntityTypeUseCase {
         this.STARepo = _STARepo
     }
 
-    async invoke(entity: EntityType ,id: number) {
+    async invoke(entity: StaEntityType ,id: number) {
         return this.STARepo.getbyId(entity, id)
     }
 }

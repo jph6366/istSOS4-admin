@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-full">
         <ClientOnly>
             <div class="map-container size-full">
                 <div id="map" class="map size-full" />
@@ -51,10 +51,12 @@ import { Map as STAM } from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { onMapLoad } from '#imports';
 import { ClientOnly } from '#components';
-import { GetAllEntityType } from '~/layers/sta/modules/istsos/usecase/read/GetAllEntityType';
-import SensorThingsImpl from '~/layers/sta/shared/SensorThingsImpl';
-import { Observation } from '~/layers/sta/modules/istsos/model/Observation';
-import { FeatureOfInterest } from '~/layers/sta/modules/istsos/model/FeatureOfInterest';
+import type { StaEntityType } from '~/layers/sta/modules/istsos/model/SensorThings.types';
+
+
+const props = defineProps<{
+  entitySet: StaEntityType[]
+}>()
 
 const features = ref<[]>([]);
 const map = ref<STAM>();
@@ -66,15 +68,9 @@ const selectedStyle = ref({
     url: 'https://demotiles.maplibre.org/style.json',
 });
 
-// Initialize your use case and repository
-const implementation = new SensorThingsImpl();
-const repository = new SensorThings(implementation);
-const getAllEntityuseCase = new GetAllEntityType(repository);
-
 onMounted(async () => {
     try {
-        const fetchedObservation = await getAllEntityuseCase.invoke(FeatureOfInterest);
-
+        const fetchedData = props.entitySet
     
         await nextTick(); // Wait for DOM to update and #map to exist
         const mapContainer = document.getElementById(mapId);
@@ -93,7 +89,7 @@ onMounted(async () => {
         map.value.setProjection({
             type: 'mercator'
         });
-        features.value = fetchedObservation.value
+        features.value = fetchedData
             .filter(foi => foi.feature)
             .map(foi => {
                 if (foi.feature.geometry) {
@@ -214,8 +210,8 @@ function toggleMapProjection() {
 
 <style>
 .map-container {
-    width: 100%;
-    height: 500px; /* Set desired height */
+    width: 84%;
+    height: 720px; /* Set desired height */
 }
 
 </style>

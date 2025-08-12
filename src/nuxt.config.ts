@@ -4,15 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: '2025-06-05',
   runtimeConfig: {
-    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1' // dev
+    // serviceRootUri: 'http://127.0.0.1:8018/istsos4/v1.1/' // dev
     // serviceRootUri: 'https://iot.hamburg.de/v1.1/' // Smart City
     // serviceRootUri: 'https://ogc-demo.k8s.ilt-dmz.iosb.fraunhofer.de/v1.1/'
     // serviceRootUri: 'https://airquality-frost.k8s.ilt-dmz.iosb.fraunhofer.de/v1.1' // Europe Air Quality
     // serviceRootUri: 'https://lubw.k8s.ilt-dmz.iosb.fraunhofer.de/v1.1/' // River & Measuring points in Bade-Wurttemberg
     // serviceRootUri: 'http://api:5000/istsos4/v1.1' // istSOS docker-compose net addr see istSOS4 docker-compose.yml
     // serviceRootUri: 'https://istsos.org/v4/v1.1'
-    serviceRootUri: 'https://labs.waterdata.usgs.gov/sta/v1.1/'
-    ,maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
+    // serviceRootUri: 'https://labs.waterdata.usgs.gov/sta/v1.1/'
+    maptilerApiKey: process.env.NUXT_MAPTILER_API_KEY || '',
     // OpenTelemetry server-side config
     otel: {
       exporterOtlpEndpoint: process.env.OTEL_EXPORTER_OTLP_ENDPOINT,
@@ -23,6 +23,7 @@ export default defineNuxtConfig({
     
     // Public runtime config (available client-side)
     public: {
+      serviceRootUri: process.env.NUXT_SERVICE_ROOT_URI, 
       // Public MapTiler key
       maptilerApiKey: process.env.NUXT_PUBLIC_MAPTILER_API_KEY || '',
       // OpenTelemetry public config

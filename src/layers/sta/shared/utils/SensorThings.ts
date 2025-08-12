@@ -1,4 +1,4 @@
-import type { EntityType } from "../../modules/istsos/model/SensorThings.types";
+import type { StaEntityType } from "../../modules/istsos/model/SensorThings.types";
 import type { SensorThingsRepository } from "../../modules/istsos/repository/SensorThingsRepository";
 
 
@@ -9,21 +9,21 @@ export default class SensorThings {
         this.repository = _repository;
     }
 
-    async getbyId(entity: EntityType, id: number): Promise<EntityType> {
+    async getbyId(entity: StaEntityType, id: number): Promise<StaEntityType> {
         return this.repository.getOneOfEntityType(entity, id);
     }
     
-    async getbyType(entity: EntityType): Promise<EntityType[]> {
+    async getbyType(entity: StaEntityType): Promise<StaEntityType[]> {
         return this.repository.getAllEntityType(entity);
     }
 
-    async getbyLinkedEntity(entity: EntityType, id: number, 
-        lentity: EntityType): Promise<EntityType> {
+    async getbyLinkedEntity(entity: StaEntityType, id: number, 
+        lentity: StaEntityType): Promise<StaEntityType> {
         return this.repository.getLinkedEntity(entity, id, lentity);
     }
 
-    async getbyLinkedEntitySet(entity: EntityType, id: number,
-        lentity: EntityType): Promise<EntityType[]> {
+    async getbyLinkedEntitySet(entity: StaEntityType, id: number,
+        lentity: StaEntityType): Promise<StaEntityType[]> {
         return this.repository.getLinkedEntitySet(entity, id, lentity);
     }
 }

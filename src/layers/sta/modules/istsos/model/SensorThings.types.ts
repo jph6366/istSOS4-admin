@@ -8,7 +8,7 @@ import type { Location } from "./Location";
 import type { HistoricalLocation } from "./HistoricalLocation";
 import type { ObservedProperty } from "./ObservedProperty";
 
-export type EntityType = 
+export type StaEntityType = 
 Observation | Datastream | FeatureOfInterest | 
 Thing | Sensor | Location | HistoricalLocation |
 ObservedProperty;
