@@ -5,7 +5,7 @@
 
 ### Other istSOS4 projects
   - istSOS4 backend
-    - fastapi + sqlalchemy*geoalchemy + postgresql*postgis + redis
+    - fastapi + geoalchemy + postgis + redis
   - istSOS4-grafana
   - istSOS4-gui
     - Next.js alternative to this project
