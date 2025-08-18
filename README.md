@@ -23,7 +23,7 @@
   - choice of infrastructure/toolings
   - dependency management
  
-- Local idioms
+- istSOS idioms
   - [**Project Steering Committee**](https://istsos.org/psc.html)
   - FAIR principles
   - CARE principles
