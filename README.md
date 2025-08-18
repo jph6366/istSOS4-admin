@@ -30,9 +30,6 @@
   - INSPIRE principles
 
 - Nuxt.js ( v4 compatability)
-  - [Nuxt-MCP](https://github.com/antfu/nuxt-mcp)
-  - [Nuxt-llms](https://github.com/nuxtlabs/nuxt-llms)
-  - Nuxt Dev Tools
 - Axios & H3
 - TailwindCSS
 - DaisyUI
