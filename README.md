@@ -1,7 +1,7 @@
 # istSOS4-Nuxt
 
 
-**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured to administer the interconnection of the Internet of Things devices, data, and applications over nuxt client-server application, with stylistic conventions of deno and typescript. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for custom filters, metadata, nesting entities, and more.**
+**Nuxt Layers and Modules authored to adhere to uncomplicate dependencies and to silo complex relationships. Designed around SensorThings API and structured to administer the interconnection of the Internet of Things devices, data, and applications over nuxt client-server application, with stylistic conventions of deno and typescript. Pinia ORM models and relationships combined with the Pinia stores offer vertical slices to group domain-based features for entity relationships and spatial predicates.**
 
 ### Other istSOS4 projects
   - istSOS4 backend
