@@ -30,7 +30,7 @@
   - INSPIRE principles
 
 - Nuxt.js ( v4 compatability)
-- Axios & H3
+- H3 & ofetch
 - TailwindCSS
 - DaisyUI
 - Pinia
